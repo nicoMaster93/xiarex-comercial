@@ -1,0 +1,317 @@
+[
+  {
+    "id": "bio",
+    "code": "XIA-BIO // 01",
+    "acronym": "BIO",
+    "tagline": "BIOMÉTRICO CONTROL",
+    "acronymColor": "text-blue-900",
+    "name": "Control Biométrico Inteligente",
+    "area": "RRHH / BIOMETRÍA",
+    "category": "rrhh",
+    "search": "bio biometrico control",
+    "description": "Gestión automatizada de asistencia, reconocimiento facial y huella dactilar sincronizados con el sistema de nómina.",
+    "docsDescription": "Identificación y control de asistencia con una operación ágil, segura y conectada.",
+    "badge": "Integración API",
+    "accent": "cyan",
+    "codeTone": "blue",
+    "logo": "resources/logos-productos/14.png",
+    "chips": ["BIOMETRÍA", "CONTROL DE ACCESO", "GESTIÓN DE ASISTENCIA"],
+    "documents": [
+      {
+        "name": "XIAREX Quick Guide",
+        "label": "Guía rápida",
+        "path": "resources/Xiarex_Quick_Guide.pdf"
+      }
+    ],
+    "demo": {
+      "url": "https://kronotime-app.centraltic.co/demo",
+      "mode": "embed",
+      "label": "Demo Control Biométrico Inteligente"
+    }
+  },
+  {
+    "id": "email-assistance",
+    "code": "XIA-EAS // 01",
+    "acronym": "EAS",
+    "tagline": "CORREOS AUTOMATIZADOS",
+    "acronymColor": "text-emerald-900",
+    "name": "Correos Automatizados",
+    "area": "CORREOS / AUTOMATIZACIÓN",
+    "category": "automatizacion",
+    "search": "email assistance correos gmail automatizacion reglas whatsapp seguimiento",
+    "description": "Plataforma para conectar cuentas Gmail, sincronizar correos relevantes mediante reglas de negocio, recibir notificaciones por WhatsApp y dar seguimiento a respuestas importantes.",
+    "docsDescription": "Centraliza, filtra y monitorea correos críticos con reglas inteligentes, alertas y seguimiento operativo.",
+    "badge": "Gmail API / WhatsApp",
+    "accent": "emerald",
+    "codeTone": "green",
+    "logo": "resources/logos-productos/15.png",
+    "chips": [
+      "GMAIL",
+      "REGLAS INTELIGENTES",
+      "WHATSAPP",
+      "SEGUIMIENTO DE CORREOS"
+    ],
+    "documents": [
+      {
+        "name": "Email Assistance Manual de Usuario",
+        "label": "Manual de usuario",
+        "path": "resources/Orbital_Command_Center.pdf"
+      }
+    ]
+  },
+  {
+    "id": "compras",
+    "code": "XIA-COM // 01",
+    "acronym": "COM",
+    "tagline": "COMPRAS INTELIGENTES",
+    "acronymColor": "text-blue-900",
+    "name": "Gestión Inteligente de Compras",
+    "area": "COMPRAS / ADMINISTRACIÓN",
+    "category": "administracion",
+    "search": "compras solicitudes cotizaciones proveedores aprobaciones tesoreria pagos ordenes",
+    "description": "Gestión centralizada del proceso de compras, desde la radicación y aprobación de solicitudes hasta el seguimiento de facturas, pagos y provisiones de Tesorería.",
+    "docsDescription": "Automatiza solicitudes, cotizaciones, aprobaciones, proveedores, órdenes de compra y seguimiento de pagos con trazabilidad completa.",
+    "badge": "Flujo automatizado",
+    "accent": "cyan",
+    "codeTone": "blue",
+    "logo": "resources/logos-productos/16.png",
+    "chips": [
+      "SOLICITUDES DE COMPRA",
+      "APROBACIONES",
+      "PROVEEDORES",
+      "TESORERÍA"
+    ],
+    "documents": [
+      {
+        "name": "Compras Digital Intelligence",
+        "label": "Documentación funcional",
+        "path": "resources/XIAREX_Digital_Command_Center.pdf"
+      }
+    ],
+    "demo": {
+      "url": "https://compras.xiarex.io/capacitacion_interactiva.html",
+      "mode": "embed",
+      "label": "Capacitación interactiva"
+    }
+  },
+  {
+    "id": "cip",
+    "code": "XIA-CIP // 02",
+    "acronym": "C.I.P",
+    "tagline": "CONTROL INTERNO PLANILLAS",
+    "acronymColor": "text-amber-800",
+    "name": "Control Interno de Planillas",
+    "area": "PLANILLAS / NOMINA",
+    "category": "rrhh",
+    "search": "cip control interno planillas",
+    "description": "Cálculo preciso de planillas, deducciones de ley, liquidaciones e imprevistos con auditoría en tiempo real.",
+    "badge": "Cumplimiento Legal",
+    "accent": "amber",
+    "codeTone": "amber",
+    "logo": "resources/logos-productos/1.png"
+  },
+  {
+    "id": "roc",
+    "code": "XIA-ROC // 03",
+    "acronym": "ROC",
+    "tagline": "RECONOCIMIENTO ÓPTICO CARACTERES",
+    "acronymColor": "text-purple-900",
+    "name": "OCR & Extracción de Texto",
+    "area": "OCR / DOCUMENTOS",
+    "category": "operaciones",
+    "search": "roc reconocimiento optico caracteres ocr",
+    "description": "Escaneo e indexación inteligente de facturas, contratos e identificaciones en formato físico a bases de datos.",
+    "docsDescription": "Reconocimiento, extracción y estructuración inteligente de información para transformar documentos en datos accionables.",
+    "badge": "Lectura IA 99%",
+    "accent": "purple",
+    "codeTone": "purple",
+    "logo": "resources/logos-productos/2.png",
+    "chips": ["OCR INTELIGENTE", "EXTRACCIÓN DE DATOS", "AUTOMATIZACIÓN"],
+    "documents": [
+      {
+        "name": "ROC Digital Intelligence",
+        "label": "Documentación funcional",
+        "path": "resources/Xiarex_ROC_Digital_Intelligence.pdf"
+      }
+    ],
+    "demo": {
+      "url": "https://api.sincotic.co/app/upload-xiarex/?u=PORTAL-DEMO",
+      "mode": "embed",
+      "label": "Demo ROC Digital Intelligence"
+    }
+  },
+  {
+    "id": "jobs",
+    "code": "XIA-JOBS // 04",
+    "acronym": "JOBS",
+    "tagline": "BANCO CV INTELIGENTE",
+    "acronymColor": "text-blue-900",
+    "name": "Reclutamiento & Banco CV",
+    "area": "SELECCIÓN / BANCO CV",
+    "category": "rrhh",
+    "search": "jobs banco cv seleccion talentos",
+    "description": "Filtro automatizado de candidatos, análisis semántico de currículums y emparejamiento con vacantes.",
+    "badge": "Scoring IA",
+    "accent": "cyan",
+    "codeTone": "cyan",
+    "logo": "resources/logos-productos/3.png"
+  },
+  {
+    "id": "dc",
+    "code": "XIA-DC // 05",
+    "acronym": "DC",
+    "tagline": "DOTACIÓN CONTROL",
+    "acronymColor": "text-slate-800",
+    "name": "Control de Dotación & Equipos",
+    "area": "INVENTARIOS / EQUIPOS",
+    "category": "operaciones",
+    "search": "dc dotacion control inventario equipos",
+    "description": "Supervisión de entrega de indumentaria, activos, herramientas e inventarios por colaborador.",
+    "badge": "Trazabilidad Total",
+    "accent": "rose",
+    "codeTone": "rose",
+    "logo": "resources/logos-productos/4.png"
+  },
+  {
+    "id": "sales",
+    "code": "XIA-SALES // 06",
+    "acronym": "SALES",
+    "tagline": "VENTAS PERDIDAS & CRM",
+    "acronymColor": "text-blue-900",
+    "name": "Análisis de Ventas Perdidas",
+    "area": "VENTAS / CRM",
+    "category": "ventas",
+    "search": "sales ventas perdidas crm inteligente",
+    "description": "Detección de fugas comerciales, re-engagement automático de cotizaciones y priorización de clientes.",
+    "badge": "+25% Conversión",
+    "accent": "emerald",
+    "codeTone": "emerald",
+    "logo": "resources/logos-productos/5.png"
+  },
+  {
+    "id": "cst",
+    "code": "XIA-CST // 07",
+    "acronym": "CST",
+    "tagline": "CENTRO SOPORTE TÉCNICO",
+    "acronymColor": "text-amber-800",
+    "name": "Centro de Soporte Técnico",
+    "area": "SOPORTE / HELPDESK",
+    "category": "operaciones",
+    "search": "cst centro soporte tecnico tickets helpdesk",
+    "description": "Gestión inteligente de incidencias, mesa de ayuda con auto-resolución por IA y SLAs automatizados.",
+    "badge": "Respuesta Instantánea",
+    "accent": "cyan",
+    "codeTone": "cyan",
+    "logo": "resources/logos-productos/6.png"
+  },
+  {
+    "id": "serv",
+    "code": "XIA-SERV // 08",
+    "acronym": "SERV",
+    "tagline": "GESTIÓN DE SERVICIOS Y TALLERES",
+    "acronymColor": "text-amber-800",
+    "name": "Servicios & Ordenes de Taller",
+    "area": "SERVICIOS / TALLERES",
+    "category": "operaciones",
+    "search": "serv gestion servicios talleres mantenimientos",
+    "description": "Programación de mantenimientos, órdenes de servicio, repuestos y control de tiempos técnicos.",
+    "badge": "Control Operativo",
+    "accent": "purple",
+    "codeTone": "purple",
+    "logo": "resources/logos-productos/7.png"
+  },
+  {
+    "id": "cit",
+    "code": "XIA-CIT // 09",
+    "acronym": "CIT",
+    "tagline": "CONTROL CITAS PREVIAS",
+    "acronymColor": "text-blue-900",
+    "name": "Gestión de Citas Previas",
+    "area": "CITAS / AGENDAMIENTO",
+    "category": "ventas",
+    "search": "cit control citas previas agendamiento turnos",
+    "description": "Reservas en línea, recordatorios multicanal por WhatsApp/Email y optimización de turnos en sala.",
+    "badge": "WhatsApp Bot",
+    "accent": "emerald",
+    "codeTone": "emerald",
+    "logo": "resources/logos-productos/8.png"
+  },
+  {
+    "id": "logistica",
+    "code": "XIA-SCAN // 10",
+    "acronym": "SCAN",
+    "tagline": "INSPECCIÓN LOGÍSTICA DIGITAL",
+    "acronymColor": "text-blue-900",
+    "name": "Inspección Logística Digital",
+    "area": "LOGÍSTICA / INSPECCIÓN",
+    "category": "operaciones",
+    "search": "scan inspeccion logistica digital carga",
+    "description": "Validación visual de paquetes, conteo por visión artificial e inspección física de despacho.",
+    "docsDescription": "Control visual, trazabilidad y operación logística conectados en una experiencia digital de extremo a extremo.",
+    "badge": "Visión por Computador",
+    "accent": "cyan",
+    "codeTone": "cyan",
+    "logo": "resources/logos-productos/9.png",
+    "chips": ["VISIÓN POR COMPUTADOR", "TRAZABILIDAD", "OPERACIÓN EN CAMPO"],
+    "documents": [
+      {
+        "name": "Logistics Administrator",
+        "label": "Administración y configuración",
+        "path": "resources/GeocargaApp_Logistics_Adm.pdf"
+      },
+      {
+        "name": "Logistics Operations",
+        "label": "Operación logística",
+        "path": "resources/GeocargaApp_Operations.pdf"
+      }
+    ]
+  },
+  {
+    "id": "cxp",
+    "code": "XIA-CXP // 11",
+    "acronym": "CXP",
+    "tagline": "AUTOMATIZACIÓN DE PAGOS Y CXP",
+    "acronymColor": "text-amber-800",
+    "name": "Automatización de Pagos & CXP",
+    "area": "PAGOS / TESORERÍA",
+    "category": "operaciones",
+    "search": "cxp automatizacion pagos cuentas por pagar tesoreria",
+    "description": "Programación de pagos a proveedores, aprobación multinivel y conciliación con cuentas bancarias.",
+    "badge": "Cero Errores",
+    "accent": "amber",
+    "codeTone": "amber",
+    "logo": "resources/logos-productos/10.png"
+  },
+  {
+    "id": "lock",
+    "code": "XIA-LOCK // 12",
+    "acronym": "LOCK",
+    "tagline": "CONTROL ACCESOS Y CLAVES",
+    "acronymColor": "text-cyan-800",
+    "name": "Control de Accesos & Claves",
+    "area": "SEGURIDAD / ACCESOS",
+    "category": "operaciones",
+    "search": "lock control accesos claves seguridad contrasenas",
+    "description": "Bóveda cifrada corporativa, autenticación Zero-Trust y auditoría de permisos de usuario.",
+    "badge": "Cifrado AES-256",
+    "accent": "rose",
+    "codeTone": "rose",
+    "logo": "resources/logos-productos/11.png"
+  },
+  {
+    "id": "clix",
+    "code": "XIA-CLIX // 13",
+    "acronym": "CLIX",
+    "tagline": "RELACIÓN Y SERVICIO AL CLIENTE",
+    "acronymColor": "text-blue-900",
+    "name": "Experiencia & Servicio al Cliente",
+    "area": "CLIENTES / FIDELIZACIÓN",
+    "category": "ventas",
+    "search": "clix relacion servicio cliente fidelizacion",
+    "description": "Mapeo de viajes del cliente, encuestas CSAT automatizadas y derivación inteligente de requerimientos.",
+    "badge": "Fidelización Activa",
+    "accent": "purple",
+    "codeTone": "purple",
+    "logo": "resources/logos-productos/12.png"
+  }
+]

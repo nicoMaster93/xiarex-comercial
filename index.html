@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIAREX | Portafolio de Productos & Agentes de IA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#070a13',
+                        darkCard: '#0f1424',
+                        cyberCyan: '#00f2fe',
+                        cyberPurple: '#7f00ff',
+                        cyberEmerald: '#10b981',
+                        cyberAmber: '#f59e0b',
+                        cyberRose: '#f43f5e'
+                    },
+                    fontFamily: {
+                        mono: ['Courier New', 'Courier', 'monospace'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 242, 254, 0.15)',
+                        'neon-cyan-strong': '0 0 25px rgba(0, 242, 254, 0.4)',
+                        'neon-purple': '0 0 15px rgba(127, 0, 255, 0.15)',
+                        'neon-emerald': '0 0 15px rgba(16, 185, 129, 0.15)',
+                        'neon-amber': '0 0 15px rgba(245, 158, 11, 0.15)',
+                        'neon-rose': '0 0 15px rgba(244, 63, 94, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070a13;
+            overflow-x: hidden;
+        }
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        .pulse-glow {
+            animation: pulse-glow 3s infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-page {
+                page-break-after: always;
+                color: black !important;
+                background: white !important;
+            }
+        }
+        .construction-modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgba(2,5,14,.82); backdrop-filter: blur(14px); opacity: 0; visibility: hidden; transition: .3s; }
+        .construction-modal.is-open { opacity: 1; visibility: visible; }
+        .construction-shell { width: min(520px,100%); position: relative; overflow: hidden; border: 1px solid rgba(0,242,254,.38); border-radius: 24px; background: linear-gradient(145deg,rgba(15,20,36,.98),rgba(6,10,22,.98)); box-shadow: 0 0 70px rgba(0,242,254,.12),0 30px 80px rgba(0,0,0,.55); transform: translateY(18px) scale(.97); transition: transform .3s; }
+        .construction-modal.is-open .construction-shell { transform: none; }
+        #demo-cart-drawer.is-open .construction-shell { transform: none; }
+        #demo-cart-drawer .construction-content { text-align: left; }
+        #demo-cart-drawer .construction-content h3 { text-align: left; }
+        #demo-cart-drawer .construction-content p { margin-left: 0; text-align: left; }
+        .construction-shell::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg,transparent 25%,rgba(0,242,254,.07),transparent 65%); }
+        .construction-topline { height: 2px; background: linear-gradient(90deg,transparent,#00f2fe,#7f00ff,transparent); }
+        .construction-content { position: relative; padding: 38px; text-align: center; }
+        .construction-close { position: absolute; top: 16px; right: 16px; width: 34px; height: 34px; border: 1px solid rgba(148,163,184,.2); border-radius: 9px; color: #94a3b8; background: rgba(15,23,42,.65); cursor: pointer; transition: .2s; }
+        .construction-close:hover { color: #00f2fe; border-color: rgba(0,242,254,.5); }
+        .construction-orbit { width: 112px; height: 112px; margin: 4px auto 28px; position: relative; display: grid; place-items: center; }
+        .construction-orbit::before,.construction-orbit::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(0,242,254,.3); border-radius: 50%; animation: constructionSpin 8s linear infinite; }
+        .construction-orbit::after { inset: 13px; border-style: dashed; border-color: rgba(127,0,255,.6); animation-direction: reverse; animation-duration: 5s; }
+        .construction-core { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; color: #00f2fe; font: 700 19px monospace; border: 1px solid rgba(0,242,254,.5); background: rgba(0,242,254,.08); box-shadow: 0 0 28px rgba(0,242,254,.2); }
+        .construction-label { color: #00f2fe; font: 10px monospace; letter-spacing: .2em; }
+        .construction-content h3 { margin: 12px 0; color: white; font-size: clamp(25px,5vw,34px); }
+        .construction-content p { margin: 0 auto; max-width: 390px; color: #94a3b8; font-size: 14px; line-height: 1.65; }
+        .construction-product { color: white; font-weight: 700; }
+        .construction-progress { height: 3px; margin: 28px 0 10px; overflow: hidden; border-radius: 8px; background: rgba(148,163,184,.12); }
+        .construction-progress span { display: block; width: 68%; height: 100%; background: linear-gradient(90deg,#00f2fe,#7f00ff); box-shadow: 0 0 12px #00f2fe; }
+        .construction-status { display: flex; justify-content: space-between; color: #64748b; font: 9px monospace; letter-spacing: .12em; }
+        @keyframes constructionSpin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="text-slate-100 selection:bg-cyan-500 selection:text-slate-900 cyber-grid relative min-h-screen">
+
+    <div id="cursor-glow" class="no-print pointer-events-none fixed inset-0 z-30 opacity-40 transition-opacity duration-300 hidden md:block" style="background: radial-gradient(400px circle at 0px 0px, rgba(0, 242, 254, 0.08), transparent 80%);"></div>
+
+    <div id="toast-container" class="fixed bottom-24 right-6 z-50 flex flex-col space-y-3 pointer-events-none"></div>
+
+    <button id="demo-cart-fab" type="button" onclick="openDemoCartDrawer()" class="no-print hidden fixed bottom-6 right-6 z-50 items-center gap-3 px-4 py-3 rounded-2xl border border-cyberCyan/40 bg-slate-950/95 text-cyberCyan font-mono text-[10px] tracking-[0.14em] shadow-neon-cyan backdrop-blur-md hover:border-cyberCyan transition-all" aria-label="Abrir solicitud de demos">
+        <span class="relative flex h-8 w-8 items-center justify-center rounded-xl border border-cyberCyan/30 bg-cyberCyan/10">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M6 6l1.5 12h9L18 6M9 10v5M15 10v5" stroke-linecap="round"/></svg>
+            <span id="demo-cart-count" class="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-cyberCyan text-slate-950 text-[9px] font-black grid place-items-center">0</span>
+        </span>
+        <span class="hidden sm:inline">SOLICITUD DEMOS</span>
+    </button>
+
+    <header class="no-print sticky top-0 z-50 backdrop-blur-md bg-darkBg/85 border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group" onclick="synth.playClick()">
+                <img src="resources/logo-xiarex.png" alt="XIAREX" class="h-10 w-auto object-contain">
+                <div>
+                    <!-- <span class="block text-[8px] font-mono tracking-[0.25em] text-slate-400 uppercase">IA & Software Solutions</span> -->
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#productos-ia" onclick="synth.playClick()" class="text-slate-300 hover:text-cyberCyan font-medium text-sm transition-colors uppercase tracking-wider">Productos IA</a>
+                <a href="#soluciones" onclick="synth.playClick()" class="text-slate-300 hover:text-cyberCyan font-medium text-sm transition-colors uppercase tracking-wider">Núcleo IA</a>
+                <a href="#demos" onclick="synth.playClick()" class="text-slate-300 hover:text-cyberCyan font-medium text-sm transition-colors uppercase tracking-wider">Laboratorio</a>
+                <a href="#roi" onclick="synth.playClick()" class="text-slate-300 hover:text-cyberCyan font-medium text-sm transition-colors uppercase tracking-wider">Calculadora ROI</a>
+                <a href="#dossier" onclick="synth.playClick()" class="text-slate-300 hover:text-cyberCyan font-medium text-sm transition-colors uppercase tracking-wider flex items-center space-x-1">
+                    <span>Dossier</span>
+                    <span class="px-1.5 py-0.5 text-[9px] bg-cyberCyan/20 text-cyberCyan rounded border border-cyberCyan/30">PDF</span>
+                </a>
+            </nav>
+
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#contacto" onclick="synth.playClick()" class="px-5 py-2.5 rounded-lg text-sm font-semibold tracking-wide border border-slate-700 bg-slate-950/60 text-slate-300 hover:border-cyberCyan hover:text-white transition-all">
+                    Iniciar Despliegue
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu(); synth.playClick()" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-darkCard border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#productos-ia" onclick="toggleMobileMenu(); synth.playClick()" class="block px-3 py-2 text-slate-300 hover:bg-slate-800 rounded-md font-medium text-base">Productos IA</a>
+            <a href="#soluciones" onclick="toggleMobileMenu(); synth.playClick()" class="block px-3 py-2 text-slate-300 hover:bg-slate-800 rounded-md font-medium text-base">Núcleo IA</a>
+            <a href="#demos" onclick="toggleMobileMenu(); synth.playClick()" class="block px-3 py-2 text-slate-300 hover:bg-slate-800 rounded-md font-medium text-base">Laboratorio</a>
+            <a href="#roi" onclick="toggleMobileMenu(); synth.playClick()" class="block px-3 py-2 text-slate-300 hover:bg-slate-800 rounded-md font-medium text-base">Calculadora ROI</a>
+            <a href="#dossier" onclick="toggleMobileMenu(); synth.playClick()" class="block px-3 py-2 text-slate-300 hover:bg-slate-800 rounded-md font-medium text-base">Descargar Dossier</a>
+            <a href="#contacto" onclick="toggleMobileMenu(); synth.playClick()" class="block w-full text-center px-4 py-2.5 bg-gradient-to-r from-cyberCyan to-cyberPurple text-darkBg font-bold rounded-lg mt-4">Cotizar Proyecto</a>
+        </div>
+    </header>
+
+    <section class="relative min-h-[85vh] flex items-center justify-center pt-8 pb-16 overflow-hidden no-print">
+        <canvas id="hero-canvas" class="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-cyberCyan/30 bg-cyberCyan/10 text-cyberCyan text-xs font-mono tracking-wider uppercase mx-auto lg:mx-0">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyberCyan opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyberCyan"></span>
+                    </span>
+                    <span>Evolución Tecnológica de SINCOTIC</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-none">
+                    DOMINIO INTELIGENTE DE <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan via-blue-400 to-cyberPurple">
+                        SISTEMAS COMPLEJOS
+                    </span>
+                </h1>
+
+                <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Arquitectura de software avanzada y orquestación inteligente con Agentes de Inteligencia Artificial. Diseñamos el núcleo operativo que reduce procesos de horas a minutos.
+                </p>
+
+                <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 border border-slate-800/80 bg-slate-900/40 p-4 rounded-xl backdrop-blur-sm font-mono text-xs">
+                    <div>
+                        <span class="block text-slate-500 uppercase text-[10px]">Tasa de Error</span>
+                        <span class="text-cyberCyan text-lg font-bold">&lt; 0.01%</span>
+                    </div>
+                    <div class="border-l border-slate-800/80 pl-4">
+                        <span class="block text-slate-500 uppercase text-[10px]">Orquestación</span>
+                        <span class="text-cyberPurple text-lg font-bold">n8n + RAG</span>
+                    </div>
+                    <div class="border-l border-slate-800/80 pl-4">
+                        <span class="block text-slate-500 uppercase text-[10px]">Eficiencia</span>
+                        <span class="text-cyberEmerald text-lg font-bold">95% Optim</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#productos-ia" onclick="synth.playClick()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyberCyan to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-slate-950 font-extrabold tracking-wide text-center transition-all shadow-neon-cyan hover:scale-[1.02] duration-300">
+                        Explorar PRODUCTOS IA
+                    </a>
+                    <a href="#demos" onclick="synth.playClick()" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-slate-700 hover:border-cyberCyan text-slate-100 hover:text-white font-bold tracking-wide text-center transition-all bg-slate-950/40 hover:bg-slate-950/80 duration-300">
+                        Probar Laboratorio IA
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96 float-animation">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-cyberCyan to-cyberPurple rounded-full opacity-20 blur-3xl pulse-glow"></div>
+                    <svg class="w-full h-full text-slate-800" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 3" />
+                        <circle cx="50" cy="50" r="35" stroke="currentColor" stroke-width="0.5" />
+                        <circle cx="50" cy="50" r="25" stroke="currentColor" stroke-width="0.75" stroke-dasharray="5 5" class="animate-[spin_40s_linear_infinite]" />
+                        <circle cx="50" cy="50" r="15" stroke="currentColor" stroke-width="1" />
+                        <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="0.25" />
+                        <line x1="5" y1="50" x2="95" y2="50" stroke="currentColor" stroke-width="0.25" />
+                        <circle cx="50" cy="15" r="2.5" class="fill-cyberCyan" />
+                        <circle cx="85" cy="50" r="2.5" class="fill-cyberPurple" />
+                        <circle cx="50" cy="85" r="2.5" class="fill-cyberCyan animate-ping" />
+                        <circle cx="15" cy="50" r="2.5" class="fill-cyberEmerald" />
+                        <path d="M50,15 L85,50 L50,85 L15,50 Z" stroke="currentColor" stroke-width="0.5" />
+                        <circle cx="50" cy="50" r="6" class="fill-slate-900 stroke-cyberCyan" stroke-width="2" />
+                        <circle cx="50" cy="50" r="2" class="fill-cyberCyan animate-pulse" />
+                    </svg>
+
+                    <div class="absolute -bottom-4 right-2 sm:right-6 bg-slate-900/90 border border-slate-700/80 p-4 rounded-xl shadow-2xl backdrop-blur-md max-w-[210px] text-left font-mono">
+                        <div class="flex items-center space-x-2 text-cyberCyan text-[10px] uppercase font-bold tracking-wider mb-1">
+                            <span class="h-2 w-2 bg-cyberCyan rounded-full animate-pulse"></span>
+                            <span>IA.CORE_v2.5_ACTIVE</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">Procesando cola de automatizaciones corporativas...</div>
+                        <div class="mt-2 text-right text-[9px] text-cyberPurple font-semibold">Latencia: 12ms</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos-ia" class="py-24 bg-slate-900/30 border-y border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-4 mb-12">
+                <div class="inline-block px-3 py-1 rounded-full border border-cyberCyan/30 bg-cyberCyan/10 text-cyberCyan text-xs font-mono tracking-widest uppercase">
+                    CATÁLOGO DE PRODUCTOS IA
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                    PRODUCTOS IA
+                </h2>
+                <p class="text-slate-400 max-w-3xl mx-auto text-sm sm:text-base">
+                    Ecosistema especializado de productos y microservicios diseñados con los estándares gráficos y tecnológicos oficiales de XIAREX.
+                </p>
+            </div>
+
+            <!-- Filtros y Buscador de Productos -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-12 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                    <button onclick="filterProducts('all'); synth.playClick()" class="prod-filter-btn active px-4 py-2 rounded-xl text-xs font-mono bg-cyberCyan text-slate-950 font-bold transition-all">
+                        TODOS (<span id="prod-count">13</span>)
+                    </button>
+                    <button onclick="filterProducts('rrhh'); synth.playClick()" class="prod-filter-btn px-4 py-2 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all">
+                        RECURSOS HUMANOS
+                    </button>
+                    <button onclick="filterProducts('operaciones'); synth.playClick()" class="prod-filter-btn px-4 py-2 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all">
+                        OPERACIONES & CONTROL
+                    </button>
+                    <button onclick="filterProducts('ventas'); synth.playClick()" class="prod-filter-btn px-4 py-2 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all">
+                        VENTAS & CLIENTES
+                    </button>
+                </div>
+                <div class="w-full md:w-72">
+                    <input type="text" id="prod-search" onkeyup="searchProducts()" placeholder="Buscar producto..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 text-xs text-white font-mono focus:outline-none focus:border-cyberCyan">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid"></div>
+        </div>
+    </section>
+
+    <section id="soluciones" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center space-y-4 mb-16">
+            <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-cyberCyan">ARQUITECTURA DE SOFTWARE</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Núcleos Operativos de Inteligencia Artificial
+            </p>
+            <p class="text-slate-400 max-w-2xl mx-auto text-sm">
+                Bases arquitectónicas sobre las cuales desplegamos la suite de productos XIAREX en la infraestructura privada de tu organización.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- IA.CORE -->
+            <div class="bg-darkCard border border-slate-800 rounded-2xl p-6 hover:border-cyberCyan/50 transition-all">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono text-xs">
+                    <span class="text-cyberCyan font-bold">XIA-CORE // 001</span>
+                    <span class="text-slate-500">v2.5</span>
+                </div>
+                <h3 class="text-2xl font-black text-white font-mono"><span class="text-slate-500">[IA]</span> CORE</h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Modelos de lenguaje RAG sobre bases de datos corporativas con privacidad total.</p>
+            </div>
+            <!-- IA.FINANCIAL -->
+            <div class="bg-darkCard border border-slate-800 rounded-2xl p-6 hover:border-cyberEmerald/50 transition-all">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono text-xs">
+                    <span class="text-cyberEmerald font-bold">XIA-FINANCIAL // 002</span>
+                    <span class="text-slate-500">v1.2</span>
+                </div>
+                <h3 class="text-2xl font-black text-white font-mono"><span class="text-slate-500">[IA]</span> FINANCIAL</h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Auditoría contable y conciliación automática con detección de irregularidades.</p>
+            </div>
+            <!-- IA.PROCESS -->
+            <div class="bg-darkCard border border-slate-800 rounded-2xl p-6 hover:border-cyberPurple/50 transition-all">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono text-xs">
+                    <span class="text-cyberPurple font-bold">XIA-PROCESS // 003</span>
+                    <span class="text-slate-500">v3.0</span>
+                </div>
+                <h3 class="text-2xl font-black text-white font-mono"><span class="text-slate-500">[IA]</span> PROCESS</h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Orquestación de flujos de trabajo e integración de API mediante motores n8n.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demos" class="py-24 bg-slate-900/40 border-y border-slate-800/80 relative no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-cyberPurple">ENTORNO EXPERIMENTAL</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Laboratorio Interactivo de Demostración</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-4 space-y-4">
+                    <button id="btn-tab-core" onclick="activateDemoTab('tab-core'); synth.playClick()" class="w-full text-left p-4 rounded-xl border border-cyberCyan bg-slate-950/80 flex items-start space-x-3 transition-all">
+                        <div class="p-2 rounded-lg bg-cyberCyan/10 text-cyberCyan">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold text-sm">IA.CORE Chat</span>
+                            <span class="block text-slate-400 text-xs">Simulador RAG Conversacional</span>
+                        </div>
+                    </button>
+
+                    <button id="btn-tab-process" onclick="activateDemoTab('tab-process'); synth.playClick()" class="w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/20 hover:bg-slate-900/60 flex items-start space-x-3 transition-all">
+                        <div class="p-2 rounded-lg bg-cyberPurple/10 text-cyberPurple">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold text-sm">IA.PROCESS Workflows</span>
+                            <span class="block text-slate-400 text-xs">Orquestador n8n</span>
+                        </div>
+                    </button>
+
+                    <button id="btn-tab-financial" onclick="activateDemoTab('tab-financial'); synth.playClick()" class="w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/20 hover:bg-slate-900/60 flex items-start space-x-3 transition-all">
+                        <div class="p-2 rounded-lg bg-cyberEmerald/10 text-cyberEmerald">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold text-sm">IA.FINANCIAL Scanner</span>
+                            <span class="block text-slate-400 text-xs">Auditoría en Tiempo Real</span>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="lg:col-span-8 bg-slate-950/80 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden min-h-[480px]">
+                    <div class="bg-slate-900/80 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-cyberRose block"></span>
+                            <span class="w-3 h-3 rounded-full bg-cyberAmber block"></span>
+                            <span class="w-3 h-3 rounded-full bg-cyberEmerald block"></span>
+                            <span id="demo-terminal-title" class="font-mono text-xs text-slate-400 pl-4">XIAREX-TERMINAL://IA-CORE-AGENT</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-cyberCyan bg-cyberCyan/10 px-2 py-0.5 rounded uppercase">Consola Activa</span>
+                    </div>
+
+                    <div class="p-6">
+                        <!-- DEMO 1: CHAT IA CORE -->
+                        <div id="demo-tab-core" class="space-y-4">
+                            <div id="chat-box" class="h-64 bg-slate-950 border border-slate-850 rounded-xl p-4 overflow-y-auto space-y-4 font-mono text-xs text-slate-300">
+                                <div class="flex items-start space-x-2.5 text-cyberCyan">
+                                    <span>[SISTEMA]:</span>
+                                    <span>Hola. Soy el Agente IA de XIAREX. ¿Qué proceso te gustaría automatizar?</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <button onclick="sendChatMessage('¿Cómo reduzco tareas repetitivas en mi administración?')" class="text-[11px] font-mono border border-slate-800 hover:border-cyberCyan text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900">
+                                    Automatización Administración ➔
+                                </button>
+                                <button onclick="sendChatMessage('¿Cómo funciona un Agente RAG sobre mi base de datos?')" class="text-[11px] font-mono border border-slate-800 hover:border-cyberCyan text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900">
+                                    Agente RAG Privado ➔
+                                </button>
+                            </div>
+                            <div class="flex items-center space-x-2 pt-2">
+                                <input id="chat-input" type="text" placeholder="Escribe tu consulta..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white font-mono focus:outline-none focus:border-cyberCyan">
+                                <button onclick="handleManualSend()" class="p-3 rounded-xl bg-cyberCyan text-slate-950 font-bold">Enviar</button>
+                            </div>
+                        </div>
+
+                        <!-- DEMO 2: WORKFLOW PROCESS -->
+                        <div id="demo-tab-process" class="hidden space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-3 font-mono text-xs">
+                                    <label class="flex items-center justify-between p-3 border border-slate-800 rounded-xl bg-slate-950 cursor-pointer">
+                                        <span>Trigger: Webhook Recepción</span>
+                                        <input type="checkbox" id="node-webhook" checked onchange="updateFlowJSON()" class="rounded bg-slate-900 text-cyberPurple">
+                                    </label>
+                                    <label class="flex items-center justify-between p-3 border border-slate-800 rounded-xl bg-slate-950 cursor-pointer">
+                                        <span>IA Model: DeepSeek / OpenAI</span>
+                                        <input type="checkbox" id="node-ai" checked onchange="updateFlowJSON()" class="rounded bg-slate-900 text-cyberPurple">
+                                    </label>
+                                </div>
+                                <pre class="bg-slate-950 border border-slate-800 rounded-xl p-4 h-48 overflow-y-auto text-[11px] text-emerald-400 font-mono" id="flow-code-box"></pre>
+                            </div>
+                        </div>
+
+                        <!-- DEMO 3: FINANCIAL SCANNER -->
+                        <div id="demo-tab-financial" class="hidden space-y-6">
+                            <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950 font-mono text-xs">
+                                <table class="w-full text-left">
+                                    <thead class="bg-slate-900 text-slate-400">
+                                        <tr><th class="p-3">Factura</th><th class="p-3">Monto</th><th class="p-3">Estado</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="p-3 text-slate-300">#FAC-2026-041</td><td class="p-3">$1,420 USD</td><td class="p-3 text-green-400">Conciliada</td></tr>
+                                        <tr><td class="p-3 text-slate-300">#FAC-2026-042</td><td class="p-3">$8,500 USD</td><td class="p-3"><span id="status-042" class="text-yellow-400">Pendiente</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="flex items-center justify-between gap-4 p-4 border border-slate-800 rounded-xl bg-slate-950">
+                                <button id="btn-scan-financial" onclick="runFinancialScan()" class="px-5 py-3 rounded-lg bg-cyberEmerald text-slate-950 font-bold font-mono text-xs">Escanear Transacciones</button>
+                                <div class="w-1/2 bg-slate-900 h-2 rounded-full overflow-hidden">
+                                    <div id="scan-progress-bar" class="w-0 bg-cyberEmerald h-full transition-all duration-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roi" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative no-print">
+        <div class="bg-darkCard border border-slate-800 rounded-3xl p-8 lg:p-12 space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-extrabold text-white">Calculadora de Retorno de Inversión</h2>
+                <p class="text-slate-400 text-sm">Calcula el ahorro estimado al automatizar tus operaciones con XIAREX.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+                <div class="space-y-2">
+                    <div class="flex justify-between text-slate-300"><span>Horas/semana:</span><span id="calc-hours-val" class="text-cyberCyan font-bold">10h</span></div>
+                    <input type="range" id="calc-hours" min="5" max="40" value="10" oninput="calculateROI()" class="w-full accent-cyberCyan">
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-slate-300"><span>Equipo:</span><span id="calc-employees-val" class="text-cyberPurple font-bold">5 pers</span></div>
+                    <input type="range" id="calc-employees" min="1" max="50" value="5" oninput="calculateROI()" class="w-full accent-cyberPurple">
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-slate-300"><span>Costo hora:</span><span id="calc-cost-val" class="text-cyberEmerald font-bold">$25</span></div>
+                    <input type="range" id="calc-cost" min="15" max="100" value="25" oninput="calculateROI()" class="w-full accent-cyberEmerald">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800 text-center font-mono">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <span class="text-[10px] text-slate-500 uppercase">Tiempo Recuperado al Mes</span>
+                    <span class="text-2xl font-black text-cyberCyan block mt-1" id="result-hours">160 hrs</span>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <span class="text-[10px] text-slate-500 uppercase">Ahorro Operativo Anual</span>
+                    <span class="text-2xl font-black text-cyberEmerald block mt-1" id="result-savings">$60,000 USD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dossier" class="py-24 bg-slate-900/20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <h2 class="text-3xl font-extrabold text-white">Dossier Técnico Comercial</h2>
+            <p class="text-slate-400 text-sm max-w-xl mx-auto">Genera y descarga el catálogo completo en PDF para tu organización.</p>
+            <button onclick="downloadDossier()" class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyberCyan to-blue-500 text-slate-950 font-extrabold font-mono shadow-neon-cyan">
+                DESCARGAR DOSSIER PDF
+            </button>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 max-w-3xl mx-auto px-4 no-print">
+        <div class="bg-darkCard border border-slate-800 rounded-3xl p-8 space-y-6">
+            <h2 class="text-2xl font-bold text-center text-white font-mono">Iniciar Despliegue Técnico</h2>
+            <div id="demo-request-summary" class="hidden rounded-2xl border border-cyberCyan/25 bg-slate-950/60 p-4 space-y-3">
+                <div class="flex items-center justify-between gap-3">
+                    <div>
+                        <div class="text-[10px] font-mono tracking-[0.16em] text-cyberCyan">DEMOS SOLICITADOS</div>
+                        <p class="text-xs text-slate-400 mt-1">Estos productos se incluirán en tu solicitud por correo.</p>
+                    </div>
+                    <button type="button" onclick="openDemoCartDrawer(); synth.playClick()" class="text-[10px] font-mono text-slate-400 hover:text-cyberCyan underline">Editar</button>
+                </div>
+                <ul id="demo-request-list" class="space-y-2 text-xs font-mono text-slate-300"></ul>
+            </div>
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4 font-mono text-xs">
+                <input id="contact-name" type="text" required placeholder="Nombre completo" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white">
+                <input id="contact-email" type="email" required placeholder="Email corporativo" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white">
+                <textarea id="contact-message" required rows="4" placeholder="Descripción de la necesidad operativa..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white"></textarea>
+                <button id="contact-submit" type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyberCyan to-cyberPurple text-darkBg font-black">SOLICITAR CONSULTORÍA</button>
+            </form>
+            <div id="contact-ticket" class="hidden p-4 bg-emerald-950/30 border border-emerald-500/30 rounded-xl text-emerald-400 font-mono text-xs text-center">
+                ¡Ticket recibido! Un arquitecto de software te contactará pronto.
+            </div>
+        </div>
+    </section>
+
+    <footer id="propiedad-intelectual" class="border-t border-slate-800 bg-slate-950/80 py-14">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 text-center">
+            <div class="inline-block px-3 py-1 rounded-full border border-slate-700 bg-slate-900/80 text-[10px] font-mono tracking-[0.18em] text-slate-400 uppercase">
+                Protección legal
+            </div>
+            <h2 class="text-lg sm:text-xl font-bold text-white font-mono tracking-tight">
+                Derechos de propiedad intelectual e industrial
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                © 2026 Todos los derechos de propiedad intelectual e industrial sobre los productos, desarrollos, soluciones tecnológicas, código fuente, algoritmos, interfaces, marcas, logotipos, textos y elementos gráficos pertenecen exclusivamente a <span class="text-cyberCyan font-semibold">XIAREX</span>.
+            </p>
+            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                El acceso, descarga o uso de nuestros productos no otorga ni transfiere ningún derecho, licencia o titularidad sobre la propiedad intelectual de la compañía. Queda totalmente prohibida la reproducción total o parcial, explotación, distribución o transformación de estos activos sin el consentimiento previo, explícito y por escrito de XIAREX.
+            </p>
+            <div class="pt-4 flex items-center justify-center gap-3 text-[10px] font-mono tracking-[0.16em] text-slate-600 uppercase">
+                <img src="resources/logo-xiarex.png" alt="XIAREX" class="h-6 w-auto object-contain opacity-80">
+                <span>XIAREX · IA &amp; Software Solutions</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="construction-modal" class="construction-modal no-print" role="dialog" aria-modal="true" aria-labelledby="construction-title" onclick="closeConstructionModal(event)">
+        <div class="construction-shell"><div class="construction-topline"></div><div class="construction-content">
+            <button class="construction-close" onclick="closeConstructionModal()" aria-label="Cerrar">✕</button>
+            <div class="construction-orbit"><div class="construction-core">X</div></div>
+            <div class="construction-label">XIAREX // EN DESARROLLO</div>
+            <h3 id="construction-title">Estamos construyendo esta experiencia</h3>
+            <p>La documentación interactiva de <span id="construction-product" class="construction-product"></span> estará disponible próximamente.</p>
+            <div class="construction-progress"><span></span></div><div class="construction-status"><span>DESPLEGANDO MÓDULO</span><span>PRÓXIMAMENTE</span></div>
+        </div></div>
+    </div>
+
+    <div id="demo-continue-modal" class="construction-modal no-print" role="dialog" aria-modal="true" aria-labelledby="demo-continue-title" onclick="closeDemoContinueModal(event)">
+        <div class="construction-shell"><div class="construction-topline"></div><div class="construction-content">
+            <button class="construction-close" onclick="closeDemoContinueModal()" aria-label="Cerrar">✕</button>
+            <div class="construction-orbit"><div class="construction-core">+</div></div>
+            <div class="construction-label">XIAREX // SOLICITUD DEMOS</div>
+            <h3 id="demo-continue-title">¿Te interesa ver más demos?</h3>
+            <p>Agregamos <span id="demo-continue-product" class="construction-product"></span> a tu solicitud. Puedes sumar otros productos sin demo local o enviar ahora tu pedido por correo.</p>
+            <div class="mt-6 grid gap-3">
+                <button type="button" onclick="continueBrowsingDemos()" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyberCyan to-blue-500 text-slate-950 font-black font-mono text-xs tracking-wide">SÍ, VER MÁS PRODUCTOS</button>
+                <button type="button" onclick="goToDemoRequestForm()" class="w-full py-3 rounded-xl border border-slate-700 bg-slate-950/70 text-slate-200 font-mono text-xs tracking-wide hover:border-cyberCyan hover:text-white transition-all">NO, ENVIAR SOLICITUD</button>
+            </div>
+            <div class="construction-status mt-5"><span id="demo-continue-count">01 EN CARRITO</span><span>CORREO CORPORATIVO</span></div>
+        </div></div>
+    </div>
+
+    <div id="demo-cart-drawer" class="construction-modal no-print" role="dialog" aria-modal="true" aria-labelledby="demo-cart-title" onclick="closeDemoCartDrawer(event)">
+        <div class="construction-shell" style="width:min(440px,100%); margin-left:auto; margin-right:24px; transform:translateX(18px) scale(.98);">
+            <div class="construction-topline"></div>
+            <div class="construction-content text-left">
+                <button class="construction-close" onclick="closeDemoCartDrawer()" aria-label="Cerrar">✕</button>
+                <div class="construction-label">CARRITO DE SOLICITUD</div>
+                <h3 id="demo-cart-title" class="!text-left !text-2xl">Demos por correo</h3>
+                <p class="!mx-0 !text-left">Revisa los productos que quieres que te habilitemos. Luego completa el formulario de contacto.</p>
+                <div id="demo-cart-items" class="mt-5 space-y-2 max-h-[42vh] overflow-auto pr-1"></div>
+                <div class="mt-6 grid gap-3">
+                    <button type="button" onclick="goToDemoRequestForm()" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyberCyan to-cyberPurple text-darkBg font-black font-mono text-xs tracking-wide">IR AL FORMULARIO</button>
+                    <button type="button" onclick="continueBrowsingDemos()" class="w-full py-3 rounded-xl border border-slate-700 bg-slate-950/70 text-slate-300 font-mono text-xs tracking-wide hover:border-cyberCyan">SEGUIR EXPLORANDO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="demo-cart.js"></script>
+    <script>
+        /* SINTETIZADOR DE EFECTOS DE SONIDO WEB AUDIO API */
+        const synth = {
+            audioCtx: null,
+            init: function() {
+                if (!this.audioCtx) {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    if (AudioContext) {
+                        this.audioCtx = new AudioContext();
+                    }
+                }
+                if (this.audioCtx && this.audioCtx.state === 'suspended') {
+                    this.audioCtx.resume();
+                }
+            },
+            playClick: function() {
+                try {
+                    this.init();
+                    if (!this.audioCtx) return;
+                    const osc = this.audioCtx.createOscillator();
+                    const gain = this.audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(800, this.audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(400, this.audioCtx.currentTime + 0.05);
+                    gain.gain.setValueAtTime(0.08, this.audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, this.audioCtx.currentTime + 0.05);
+                    osc.connect(gain);
+                    gain.connect(this.audioCtx.destination);
+                    osc.start();
+                    osc.stop(this.audioCtx.currentTime + 0.05);
+                } catch(e) {}
+            },
+            playSuccess: function() {
+                try {
+                    this.init();
+                    if (!this.audioCtx) return;
+                    const now = this.audioCtx.currentTime;
+                    const osc = this.audioCtx.createOscillator();
+                    const gain = this.audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.08);
+                    osc.frequency.setValueAtTime(783.99, now + 0.16);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.connect(gain);
+                    gain.connect(this.audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } catch(e) {}
+            },
+            playBeep: function() {
+                try {
+                    this.init();
+                    if (!this.audioCtx) return;
+                    const osc = this.audioCtx.createOscillator();
+                    const gain = this.audioCtx.createGain();
+                    osc.type = 'square';
+                    osc.frequency.setValueAtTime(1000, this.audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.06, this.audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, this.audioCtx.currentTime + 0.08);
+                    osc.connect(gain);
+                    gain.connect(this.audioCtx.destination);
+                    osc.start();
+                    osc.stop(this.audioCtx.currentTime + 0.08);
+                } catch(e) {}
+            }
+        };
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            const colorClass = type === 'success' ? 'border-cyberCyan text-cyberCyan' : 'border-cyberPurple text-cyberPurple';
+            toast.className = `no-print pointer-events-auto flex items-center space-x-2 bg-darkCard border ${colorClass} px-4 py-3 rounded-xl shadow-2xl font-mono text-xs transition-all duration-300`;
+            toast.innerHTML = `<span class="h-2 w-2 rounded-full bg-current animate-pulse"></span><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        }
+
+        function openConstructionModal(productName) {
+            synth.playClick();
+            document.getElementById('construction-product').textContent = productName;
+            document.getElementById('construction-modal').classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeConstructionModal(event) {
+            const modal = document.getElementById('construction-modal');
+            if (event && event.target !== modal) return;
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        function syncDemoCartUI() {
+            const items = DemoCart.getItems();
+            const fab = document.getElementById('demo-cart-fab');
+            const count = document.getElementById('demo-cart-count');
+            const summary = document.getElementById('demo-request-summary');
+            const list = document.getElementById('demo-request-list');
+            const submit = document.getElementById('contact-submit');
+            const message = document.getElementById('contact-message');
+
+            if (count) count.textContent = String(items.length);
+            if (fab) {
+                fab.classList.toggle('hidden', items.length === 0);
+                fab.classList.toggle('flex', items.length > 0);
+            }
+
+            if (summary && list) {
+                if (items.length) {
+                    summary.classList.remove('hidden');
+                    list.innerHTML = items.map(item =>
+                        `<li class="flex items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-900/50 px-3 py-2">
+                            <span><span class="text-cyberCyan">${item.code || item.acronym}</span> · ${item.name}</span>
+                            <button type="button" class="text-slate-500 hover:text-rose-400" onclick="removeDemoFromCart('${item.id}')" aria-label="Quitar">✕</button>
+                        </li>`
+                    ).join('');
+                } else {
+                    summary.classList.add('hidden');
+                    list.innerHTML = '';
+                }
+            }
+
+            if (submit) {
+                submit.textContent = items.length
+                    ? `SOLICITAR ${items.length} DEMO${items.length > 1 ? 'S' : ''}`
+                    : 'SOLICITAR CONSULTORÍA';
+            }
+
+            if (message && items.length) {
+                const block = `Solicito acceso a demo(s) de:\n${DemoCart.summaryText(items)}\n\n`;
+                if (!message.dataset.userEdited) {
+                    const rest = message.value.replace(/^Solicito acceso a demo\(s\) de:[\s\S]*?\n\n/, '');
+                    message.value = block + rest;
+                }
+            }
+        }
+
+        function renderDemoCartItems() {
+            const box = document.getElementById('demo-cart-items');
+            if (!box) return;
+            const items = DemoCart.getItems();
+            if (!items.length) {
+                box.innerHTML = '<p class="text-xs text-slate-500 font-mono">Tu solicitud está vacía.</p>';
+                return;
+            }
+            box.innerHTML = items.map(item =>
+                `<div class="flex items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/70 px-3 py-3">
+                    <div>
+                        <div class="text-[10px] font-mono text-cyberCyan tracking-wider">${item.code || item.acronym}</div>
+                        <div class="text-sm text-white font-semibold mt-1">${item.name}</div>
+                    </div>
+                    <button type="button" onclick="removeDemoFromCart('${item.id}')" class="text-[10px] font-mono text-slate-500 hover:text-rose-400">QUITAR</button>
+                </div>`
+            ).join('');
+        }
+
+        function requestDemoAccess(product) {
+            synth.playClick();
+            const result = DemoCart.add(product);
+            syncDemoCartUI();
+            if (!result.ok && result.reason === 'duplicate') {
+                showToast(`${product.name} ya está en tu solicitud`, 'info');
+                openDemoContinueModal(product);
+                return;
+            }
+            synth.playSuccess();
+            showToast(`${product.name} agregado a la solicitud`, 'success');
+            openDemoContinueModal(product);
+        }
+
+        function openDemoContinueModal(product) {
+            document.getElementById('demo-continue-product').textContent = product.name;
+            document.getElementById('demo-continue-count').textContent =
+                `${String(DemoCart.count()).padStart(2, '0')} EN CARRITO`;
+            document.getElementById('demo-continue-modal').classList.add('is-open');
+            document.getElementById('demo-cart-drawer')?.classList.remove('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemoContinueModal(event) {
+            const modal = document.getElementById('demo-continue-modal');
+            if (event && event.target !== modal) return;
+            modal.classList.remove('is-open');
+            if (!document.getElementById('demo-cart-drawer')?.classList.contains('is-open')
+                && !document.getElementById('construction-modal')?.classList.contains('is-open')) {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function openDemoCartDrawer() {
+            synth.playClick();
+            renderDemoCartItems();
+            document.getElementById('demo-cart-drawer').classList.add('is-open');
+            document.getElementById('demo-continue-modal')?.classList.remove('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemoCartDrawer(event) {
+            const modal = document.getElementById('demo-cart-drawer');
+            if (event && event.target !== modal) return;
+            modal.classList.remove('is-open');
+            if (!document.getElementById('demo-continue-modal')?.classList.contains('is-open')
+                && !document.getElementById('construction-modal')?.classList.contains('is-open')) {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function removeDemoFromCart(id) {
+            synth.playClick();
+            DemoCart.remove(id);
+            syncDemoCartUI();
+            renderDemoCartItems();
+            if (!DemoCart.count()) {
+                closeDemoCartDrawer();
+                showToast('Solicitud vacía', 'info');
+            }
+        }
+
+        function highlightRequestableProducts() {
+            document.querySelectorAll('.product-card[data-requestable="1"]').forEach(card => {
+                card.classList.add('ring-1', 'ring-cyberAmber/40');
+                setTimeout(() => card.classList.remove('ring-1', 'ring-cyberAmber/40'), 2600);
+            });
+        }
+
+        function continueBrowsingDemos() {
+            synth.playClick();
+            closeDemoContinueModal();
+            closeDemoCartDrawer();
+            const section = document.getElementById('productos-ia');
+            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            highlightRequestableProducts();
+            showToast('Explora más productos y suma demos a tu solicitud', 'info');
+        }
+
+        function goToDemoRequestForm() {
+            synth.playClick();
+            closeDemoContinueModal();
+            closeDemoCartDrawer();
+            syncDemoCartUI();
+            const message = document.getElementById('contact-message');
+            if (message) message.dataset.userEdited = '';
+            syncDemoCartUI();
+            const section = document.getElementById('contacto');
+            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => document.getElementById('contact-name')?.focus(), 450);
+        }
+
+        window.requestDemoAccess = requestDemoAccess;
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                closeConstructionModal();
+                closeDemoContinueModal();
+                closeDemoCartDrawer();
+            }
+        });
+
+        window.addEventListener('demo-cart:change', syncDemoCartUI);
+        document.addEventListener('DOMContentLoaded', () => {
+            syncDemoCartUI();
+            const message = document.getElementById('contact-message');
+            message?.addEventListener('input', () => {
+                message.dataset.userEdited = '1';
+            });
+
+            const params = new URLSearchParams(location.search);
+            if (params.get('solicitar') === '1') {
+                goToDemoRequestForm();
+            }
+        });
+
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.prod-filter-btn');
+            const clicked = (typeof event !== 'undefined' && event.target) ? event.target.closest('.prod-filter-btn') : null;
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-cyberCyan', 'text-slate-950', 'font-bold');
+                btn.classList.add('bg-slate-900', 'text-slate-400');
+            });
+            if (clicked) {
+                clicked.classList.remove('bg-slate-900', 'text-slate-400');
+                clicked.classList.add('bg-cyberCyan', 'text-slate-950', 'font-bold');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('prod-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        const canvas = document.getElementById('hero-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = canvas.parentElement.clientHeight || window.innerHeight;
+
+            const nodes = Array.from({ length: 30 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                r: Math.random() * 2 + 1
+            }));
+
+            function animateNodes() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+
+                nodes.forEach((n, i) => {
+                    n.x += n.vx;
+                    n.y += n.vy;
+                    if (n.x < 0 || n.x > width) n.vx *= -1;
+                    if (n.y < 0 || n.y > height) n.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const n2 = nodes[j];
+                        if (Math.hypot(n.x - n2.x, n.y - n2.y) < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(n.x, n.y);
+                            ctx.lineTo(n2.x, n2.y);
+                            ctx.stroke();
+                        }
+                    }
+                });
+                requestAnimationFrame(animateNodes);
+            }
+            animateNodes();
+        }
+
+        function activateDemoTab(tabId) {
+            ['tab-core', 'tab-process', 'tab-financial'].forEach(tab => {
+                const tabEl = document.getElementById(`demo-${tab}`);
+                const btnEl = document.getElementById(`btn-${tab}`);
+                if (tab === tabId) {
+                    tabEl.classList.remove('hidden');
+                    btnEl.classList.add('border-cyberCyan');
+                } else {
+                    tabEl.classList.add('hidden');
+                    btnEl.classList.remove('border-cyberCyan');
+                }
+            });
+        }
+
+        function sendChatMessage(text) {
+            const chatBox = document.getElementById('chat-box');
+            if (!chatBox) return;
+            synth.playBeep();
+            const userMsg = document.createElement('div');
+            userMsg.className = 'text-slate-100 mt-2';
+            userMsg.innerHTML = `<span>[USUARIO]:</span> ${text}`;
+            chatBox.appendChild(userMsg);
+            
+            setTimeout(() => {
+                const sysMsg = document.createElement('div');
+                sysMsg.className = 'text-cyberCyan mt-2';
+                sysMsg.innerHTML = `<span>[IA_CORE]:</span> Procesando requerimiento con la base vectorial corporativa de XIAREX... OK.`;
+                chatBox.appendChild(sysMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                synth.playSuccess();
+            }, 600);
+        }
+
+        function handleManualSend() {
+            const input = document.getElementById('chat-input');
+            if (input && input.value.trim()) {
+                sendChatMessage(input.value.trim());
+                input.value = '';
+            }
+        }
+
+        function updateFlowJSON() {
+            const web = document.getElementById('node-webhook').checked;
+            const ai = document.getElementById('node-ai').checked;
+            document.getElementById('flow-code-box').textContent = JSON.stringify({
+                flowId: "xia-flow-01",
+                activeNodes: [web ? "webhook" : null, ai ? "deepseek_ai" : null].filter(Boolean)
+            }, null, 2);
+        }
+        updateFlowJSON();
+
+        function runFinancialScan() {
+            synth.playBeep();
+            const bar = document.getElementById('scan-progress-bar');
+            bar.style.width = '100%';
+            setTimeout(() => {
+                document.getElementById('status-042').textContent = 'ANOMALÍA DETECTADA';
+                document.getElementById('status-042').className = 'text-rose-500 font-bold';
+                synth.playSuccess();
+            }, 600);
+        }
+
+        function calculateROI() {
+            const h = parseInt(document.getElementById('calc-hours').value);
+            const e = parseInt(document.getElementById('calc-employees').value);
+            const c = parseInt(document.getElementById('calc-cost').value);
+
+            document.getElementById('calc-hours-val').textContent = `${h}h`;
+            document.getElementById('calc-employees-val').textContent = `${e} pers`;
+            document.getElementById('calc-cost-val').textContent = `$${c}`;
+
+            const hoursSaved = h * e * 4;
+            const savings = hoursSaved * c * 12;
+
+            document.getElementById('result-hours').textContent = `${hoursSaved} hrs`;
+            document.getElementById('result-savings').textContent = `$${savings.toLocaleString()} USD`;
+        }
+        calculateROI();
+
+        function downloadDossier() {
+            synth.playSuccess();
+            window.print();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            synth.playSuccess();
+            const items = DemoCart.getItems();
+            const name = document.getElementById('contact-name')?.value?.trim() || '';
+            const email = document.getElementById('contact-email')?.value?.trim() || '';
+            const message = document.getElementById('contact-message')?.value?.trim() || '';
+            const ticket = document.getElementById('contact-ticket');
+
+            if (items.length) {
+                const subject = encodeURIComponent(`Solicitud de demo XIAREX (${items.length})`);
+                const body = encodeURIComponent(
+                    `Nombre: ${name}\nEmail: ${email}\n\n${message}\n\n— Enviado desde el portafolio comercial XIAREX`
+                );
+                window.location.href = `mailto:comercial@xiarex.io?subject=${subject}&body=${body}`;
+                ticket.textContent = `Solicitud lista: se abrirá tu correo con ${items.length} demo(s). También puedes editar el mensaje antes de enviarlo.`;
+                DemoCart.clear();
+                syncDemoCartUI();
+            } else {
+                ticket.textContent = '¡Ticket recibido! Un arquitecto de software te contactará pronto.';
+            }
+
+            ticket.classList.remove('hidden');
+        }
+    </script>
+    <script src="catalogo.js" defer></script>
+</body>
+</html>

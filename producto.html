@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050812">
+  <title>XIAREX | Centro de documentación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="producto.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html#productos-ia" aria-label="Volver al portafolio">
+      <span class="brand-mark">X</span><span>XIA<strong>REX</strong></span>
+    </a>
+    <div class="topbar-status"><i></i><span id="topbarMode">DOCUMENTATION CORE</span></div>
+    <a class="back" href="index.html#productos-ia"><span>←</span> Volver al portafolio</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span id="productCode">XIAREX // DOC</span><i></i> <span id="heroLabel">DOCUMENTACIÓN INTERACTIVA</span></div>
+      <h1 id="productTitle">Centro de documentación</h1>
+      <p id="productDescription">Explora las capacidades, flujos y componentes del producto.</p>
+      <div class="hero-chips" id="productChips"></div>
+      <div class="view-tabs" id="viewTabs" hidden>
+        <button type="button" class="view-tab active" data-view="docs" id="tabDocs">DOCUMENTACIÓN</button>
+        <button type="button" class="view-tab" data-view="demo" id="tabDemo">LIVE DEMO</button>
+        <button type="button" class="view-tab" data-view="request" id="tabRequest" hidden>SOLICITAR DEMO</button>
+      </div>
+    </section>
+
+    <section class="workspace" id="workspaceDocs">
+      <aside class="documents-panel">
+        <div class="panel-heading"><span>DOCUMENTOS</span><b id="documentCount">01</b></div>
+        <div id="documentList" class="document-list"></div>
+        <div class="hint"><span>✦</span><p>Selecciona un documento y recorre sus páginas sin abandonar el portafolio.</p></div>
+      </aside>
+
+      <section class="viewer-panel">
+        <div class="viewer-toolbar">
+          <div class="current-file"><span class="file-pulse"></span><div><small>ARCHIVO ACTIVO</small><strong id="activeDocumentName">Cargando…</strong></div></div>
+          <div class="toolbar-actions">
+            <button id="zoomOut" title="Alejar" aria-label="Alejar">−</button>
+            <span id="zoomValue">100%</span>
+            <button id="zoomIn" title="Acercar" aria-label="Acercar">+</button>
+            <button id="fitWidth" title="Ajustar al ancho" aria-label="Ajustar al ancho">↔</button>
+            <button id="fullscreen" title="Pantalla completa" aria-label="Pantalla completa">⛶</button>
+            <a id="openPdf" href="#" target="_blank" rel="noopener" title="Abrir PDF">↗</a>
+          </div>
+        </div>
+
+        <div class="viewer-stage" id="viewerStage">
+          <div class="scanner-line"></div>
+          <div class="loading" id="loading"><span></span><p>INICIALIZANDO DOCUMENTO</p></div>
+          <canvas id="pdfCanvas" aria-label="Página del documento PDF"></canvas>
+          <iframe id="pdfFallback" title="Documento PDF" allow="camera; geolocation" hidden></iframe>
+        </div>
+
+        <div class="viewer-footer">
+          <button id="previousPage"><span>←</span> Anterior</button>
+          <div class="page-status"><span>PÁGINA</span><input id="pageInput" type="number" min="1" value="1" aria-label="Página actual"><span>/</span><strong id="pageCount">—</strong></div>
+          <button id="nextPage">Siguiente <span>→</span></button>
+        </div>
+        <div class="progress"><span id="readingProgress"></span></div>
+      </section>
+    </section>
+
+    <section class="workspace workspace-demo" id="workspaceDemo" hidden>
+      <aside class="documents-panel demo-side">
+        <div class="panel-heading"><span>DEMO LIVE</span><b>ON</b></div>
+        <div class="demo-card">
+          <div class="demo-card-label">CANAL ACTIVO</div>
+          <strong id="demoLabel">Experiencia interactiva</strong>
+          <p id="demoModeBadge">MODO EMBEBIDO</p>
+        </div>
+        <div class="demo-actions">
+          <button type="button" class="demo-action primary" id="demoLaunch">INICIAR DEMO</button>
+          <a class="demo-action" id="demoExternal" href="#" target="_blank" rel="noopener">ABRIR EXTERNO ↗</a>
+          <button type="button" class="demo-action" id="demoReload" hidden>RECARGAR FRAME</button>
+        </div>
+        <div class="hint"><span>◈</span><p>El demo puede verse embebido aquí o abrirse en una ventana externa según la configuración del producto.</p></div>
+      </aside>
+
+      <section class="viewer-panel demo-panel">
+        <div class="viewer-toolbar">
+          <div class="current-file"><span class="file-pulse demo-pulse"></span><div><small>STREAM DEMO</small><strong id="demoUrlLabel">Listo para lanzar</strong></div></div>
+          <div class="toolbar-actions">
+            <button id="demoFullscreen" title="Pantalla completa" aria-label="Pantalla completa">⛶</button>
+          </div>
+        </div>
+        <div class="demo-stage" id="demoStage">
+          <div class="scanner-line"></div>
+          <div class="demo-placeholder" id="demoPlaceholder">
+            <div class="demo-orbit"><span></span></div>
+            <p>NÚCLEO DEMO EN ESPERA</p>
+            <small id="demoHint">Pulsa INICIAR DEMO para cargar la experiencia</small>
+          </div>
+          <iframe id="demoFrame" title="Demo del producto" allow="camera; geolocation" hidden></iframe>
+          <div class="demo-external-panel" id="demoExternalPanel" hidden>
+            <div class="demo-orbit"><span></span></div>
+            <p>MODO EXTERNO</p>
+            <small>Este demo se abre fuera del portafolio para máxima compatibilidad.</small>
+            <button type="button" class="demo-action primary" id="demoOpenExternal">LANZAR EN NUEVA VENTANA</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="workspace workspace-demo" id="workspaceRequest" hidden>
+      <aside class="documents-panel demo-side">
+        <div class="panel-heading"><span>DEMO REQUEST</span><b>MAIL</b></div>
+        <div class="demo-card">
+          <div class="demo-card-label">ACCESO BAJO DEMANDA</div>
+          <strong>Demo por solicitud</strong>
+          <p>CORREO CORPORATIVO</p>
+        </div>
+        <div class="demo-actions">
+          <button type="button" class="demo-action primary" id="requestAddCart">AGREGAR A SOLICITUD</button>
+          <button type="button" class="demo-action" id="requestMore">VER MÁS PRODUCTOS</button>
+          <button type="button" class="demo-action" id="requestSend">IR AL FORMULARIO</button>
+        </div>
+        <div class="hint"><span>✉</span><p>Este producto no tiene demo local. Puedes armar un carrito de demos y solicitarlos juntos por correo.</p></div>
+      </aside>
+      <section class="viewer-panel demo-panel">
+        <div class="viewer-toolbar">
+          <div class="current-file"><span class="file-pulse demo-pulse"></span><div><small>SOLICITUD</small><strong id="requestStatus">Listo para agregar</strong></div></div>
+        </div>
+        <div class="demo-stage">
+          <div class="scanner-line"></div>
+          <div class="demo-placeholder" id="requestPlaceholder">
+            <div class="demo-orbit"><span></span></div>
+            <p>DEMO BAJO SOLICITUD</p>
+            <small>Agrégalo a tu carrito. Luego te preguntaremos si quieres sumar más productos o enviar la solicitud.</small>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="demo-cart.js"></script>
+  <script type="module" src="producto.js"></script>
+</body>
+</html>
