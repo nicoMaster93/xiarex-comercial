@@ -14,7 +14,7 @@
     "badge": "Integración API",
     "accent": "cyan",
     "codeTone": "blue",
-    "logo": "resources/logos-productos/14.png",
+    "logo": "resources/logos-productos/14.PNG",
     "chips": ["BIOMETRÍA", "CONTROL DE ACCESO", "GESTIÓN DE ASISTENCIA"],
     "documents": [
       {
@@ -44,7 +44,7 @@
     "badge": "Gmail API / WhatsApp",
     "accent": "emerald",
     "codeTone": "green",
-    "logo": "resources/logos-productos/15.png",
+    "logo": "resources/logos-productos/15.PNG",
     "chips": [
       "GMAIL",
       "REGLAS INTELIGENTES",
@@ -74,7 +74,7 @@
     "badge": "Flujo automatizado",
     "accent": "cyan",
     "codeTone": "blue",
-    "logo": "resources/logos-productos/16.png",
+    "logo": "resources/logos-productos/16.PNG",
     "chips": [
       "SOLICITUDES DE COMPRA",
       "APROBACIONES",
@@ -108,7 +108,7 @@
     "badge": "Cumplimiento Legal",
     "accent": "amber",
     "codeTone": "amber",
-    "logo": "resources/logos-productos/1.png"
+    "logo": "resources/logos-productos/1.PNG"
   },
   {
     "id": "roc",
@@ -125,7 +125,7 @@
     "badge": "Lectura IA 99%",
     "accent": "purple",
     "codeTone": "purple",
-    "logo": "resources/logos-productos/2.png",
+    "logo": "resources/logos-productos/2.PNG",
     "chips": ["OCR INTELIGENTE", "EXTRACCIÓN DE DATOS", "AUTOMATIZACIÓN"],
     "documents": [
       {
@@ -154,7 +154,7 @@
     "badge": "Scoring IA",
     "accent": "cyan",
     "codeTone": "cyan",
-    "logo": "resources/logos-productos/3.png"
+    "logo": "resources/logos-productos/3.PNG"
   },
   {
     "id": "dc",
@@ -170,7 +170,7 @@
     "badge": "Trazabilidad Total",
     "accent": "rose",
     "codeTone": "rose",
-    "logo": "resources/logos-productos/4.png"
+    "logo": "resources/logos-productos/4.PNG"
   },
   {
     "id": "sales",
@@ -186,7 +186,7 @@
     "badge": "+25% Conversión",
     "accent": "emerald",
     "codeTone": "emerald",
-    "logo": "resources/logos-productos/5.png"
+    "logo": "resources/logos-productos/5.PNG"
   },
   {
     "id": "cst",
@@ -202,7 +202,7 @@
     "badge": "Respuesta Instantánea",
     "accent": "cyan",
     "codeTone": "cyan",
-    "logo": "resources/logos-productos/6.png"
+    "logo": "resources/logos-productos/6.PNG"
   },
   {
     "id": "serv",
@@ -218,7 +218,7 @@
     "badge": "Control Operativo",
     "accent": "purple",
     "codeTone": "purple",
-    "logo": "resources/logos-productos/7.png"
+    "logo": "resources/logos-productos/7.PNG"
   },
   {
     "id": "cit",
@@ -234,7 +234,7 @@
     "badge": "WhatsApp Bot",
     "accent": "emerald",
     "codeTone": "emerald",
-    "logo": "resources/logos-productos/8.png"
+    "logo": "resources/logos-productos/8.PNG"
   },
   {
     "id": "logistica",
@@ -251,7 +251,7 @@
     "badge": "Visión por Computador",
     "accent": "cyan",
     "codeTone": "cyan",
-    "logo": "resources/logos-productos/9.png",
+    "logo": "resources/logos-productos/9.PNG",
     "chips": ["VISIÓN POR COMPUTADOR", "TRAZABILIDAD", "OPERACIÓN EN CAMPO"],
     "documents": [
       {
@@ -280,7 +280,7 @@
     "badge": "Cero Errores",
     "accent": "amber",
     "codeTone": "amber",
-    "logo": "resources/logos-productos/10.png"
+    "logo": "resources/logos-productos/10.PNG"
   },
   {
     "id": "lock",
@@ -296,6 +296,6 @@
     "badge": "Cifrado AES-256",
     "accent": "rose",
     "codeTone": "rose",
-    "logo": "resources/logos-productos/11.png"
+    "logo": "resources/logos-productos/11.PNG"
   }
 ]
